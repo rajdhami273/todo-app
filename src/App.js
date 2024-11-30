@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Outlet } from "react-router-dom";
 
+// Components
+import { Box } from "@chakra-ui/react";
+import { Header } from "./components/header/Header";
+import { Footer } from "./components/footer/Footer";
+
+// styles
+import "./App.css";
+
+/**
+ * 1. 3 pages vix, Listing, Reading, Add/Edit
+ * 2. Each article on Listing page -> Title, some content, Cover image, Date and Created by
+ * 3. Allow adding, editing an article
+ * 4. Header with search bar and logo
+ * 5. Login, Logout, Signup
+ * 6. Footer
+ */
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      {/* slot for child start */}
+      <Box p={"10"}>
+        <Outlet />
+      </Box>
+      {/* slot for child end */}
+      <Footer />
+    </>
   );
 }
 
